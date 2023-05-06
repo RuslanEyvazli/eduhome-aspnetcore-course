@@ -1,0 +1,92 @@
+﻿@model Course
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <img style="width:200px !important;height:200px !important" src="~/img/course/@Model.Image" alt="Alternate Text" />
+    </div>
+    <div class="col-md-12">
+        <form  method="post" enctype="multipart/form-data">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="Photo"></label>
+                    <input class="form-control"  asp-for="Photo" accept="image/*">
+                    <span asp-validation-for="Photo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CourseFeature.Assement"></label><br>
+                    <input class="form-control" asp-for="CourseFeature.Assement" /><br />
+                    <label asp-for="CourseFeature.Duration"></label><br>
+                    <input class="form-control" asp-for="CourseFeature.Duration" /><br />
+                    <label asp-for="CourseFeature.ClassDuration"></label><br />
+                    <input class="form-control" asp-for="CourseFeature.ClassDuration" /><br />
+                    <label asp-for="CourseFeature.Language"></label><br />
+                    <input class="form-control" asp-for="CourseFeature.Language" /><br />
+                    <label asp-for="CourseFeature.Sarts"></label><br />
+                    <input class="form-control" asp-for="CourseFeature.Sarts" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="CourseFeature.SkillLevel"></label><br />
+                    <input class="form-control" asp-for="CourseFeature.SkillLevel" /><br />
+                    <label asp-for="CourseFeature.StudentCount"></label><br />
+                    <input class="form-control" asp-for="CourseFeature.StudentCount" /><br />
+                    <label asp-for="CourseFeature.CourseFee"></label><br />
+                    <input class="form-control"type="number" asp-for="CourseFeature.CourseFee" />
+                    <span asp-validation-for="CourseFeature.CourseFee"></span>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" asp-for="CourseName" />
+                </div>
+                <div class="form-group">
+                    <input class="form-control" asp-for="Description" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="CourseContent.About"></label><br />
+                    <textarea asp-for="CourseContent.About" id="editor"></textarea><br />
+                    <label asp-for="CourseContent.Certification"></label><br />
+                    <textarea asp-for="CourseContent.Certification" id="editor1"></textarea><br />
+                    <label asp-for="CourseContent.HowToApply"></label><br />
+                    <textarea asp-for="CourseContent.HowToApply" id="editor2"></textarea>
+
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <a class="btn btn-facebook" asp-action="Index">Go Back</a>
+            </div>
+
+
+            
+        </form>
+    </div>
+    
+</div>
+
+
+
+@section Scripts{
+    <partial name="_ValidationAdminParial" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor1'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor2'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
+}

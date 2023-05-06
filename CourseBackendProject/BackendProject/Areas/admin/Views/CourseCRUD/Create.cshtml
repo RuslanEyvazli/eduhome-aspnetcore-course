@@ -1,0 +1,100 @@
+﻿@model CourseCRUDVM
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create Course</h4>
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label asp-for="Coursee.Photo"></label>
+                            <input  asp-for="Coursee.Photo" accept="image/*">
+                            <span asp-validation-for="Coursee.Photo" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label asp-for="Coursee.CourseName"></label><br />
+                        <input class="form-control" asp-for="Coursee.CourseName" /><br />
+                        <label asp-for="Coursee.Description"></label><br />
+                        <textarea asp-for="Coursee.Description" id="editor"></textarea>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label asp-for="CourseContentt.About"></label><br />
+                            <textarea asp-for="CourseContentt.About" id="editor1"></textarea><br />
+                            <label asp-for="CourseContentt.Certification"></label><br />
+                            <textarea asp-for="CourseContentt.Certification" id="editor2"></textarea><br />
+                            <label asp-for="CourseContentt.HowToApply"></label><br />
+                            <textarea asp-for="CourseContentt.HowToApply" id="editor3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label asp-for="CourseFeaturee.Sarts"></label><br>
+                            <input class="form-control" asp-for="CourseFeaturee.Sarts" /><br />
+                            <label asp-for="CourseFeaturee.Duration"></label><br>
+                            <input class="form-control" asp-for="CourseFeaturee.Duration" /><br />
+                            <label asp-for="CourseFeaturee.ClassDuration"></label><br />
+                            <input class="form-control" asp-for="CourseFeaturee.ClassDuration" /><br />
+                            <label asp-for="CourseFeaturee.SkillLevel"></label><br />
+                            <input class="form-control" asp-for="CourseFeaturee.SkillLevel" /> <br />
+                            <label asp-for="CourseFeaturee.Language"></label><br />
+                            <input class="form-control" asp-for="CourseFeaturee.Language" />
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label asp-for="CourseFeaturee.StudentCount"></label><br />
+                            <input class="form-control" asp-for="CourseFeaturee.StudentCount" /> <br />
+                            <label asp-for="CourseFeaturee.Assement"></label><br />
+                            <input class="form-control" asp-for="CourseFeaturee.Assement" /> <br />
+                            <label  asp-for="CourseFeaturee.CourseFee"></label><br />
+                            <input class="form-control" asp-for="CourseFeaturee.CourseFee" /> <br />
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <a asp-action="Index" class="btn btn-dribbble">Go Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <partial name="_ValidationAdminParial" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor1'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor2'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor3'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+   
+}

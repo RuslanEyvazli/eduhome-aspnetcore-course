@@ -1,0 +1,27 @@
+﻿@model Speaker
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="row">
+    <div class="col-6">
+        <img style="width:200px !important;height:200px !important" src="~/img/event/@Model.Image" alt="Alternate Text" />
+    </div>
+    <div class="col-6">
+        <form class="d-flex">
+            <div class="col-4">
+                <div class="form-group">
+                    <label asp-for="Fullname"></label><br />
+                    <input asp-for="Fullname" /><br />
+                    <label asp-for="Profession"></label><br />
+                    <input asp-for="Profession" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="row">
+    <a class="btn btn-facebook mt-3 ml-3" asp-action="Index">Go Back</a>
+</div>

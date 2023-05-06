@@ -1,0 +1,74 @@
+﻿@model IEnumerable<UserVM>
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-danger text-center">Change Users Role</h1>
+        <div class="row">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Username</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Fullname</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Delete</th>
+                        <th scope="col">Admin</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (UserVM user in Model.Where(u => u.IsDeletedet == false))
+                    {
+                        <tr>
+                            <th>@user.Username</th>
+                            <td>@user.Email</td>
+                            <td>@user.Fullname</td>
+                            <td>@user.Role</td>
+                            <td>
+                                @if (user.Role != Helper.UserRoles.Admin.ToString())
+                                {
+                                    <a asp-controller="AdminRole" asp-action="DeleteUser" asp-route-email="@user.Email" class="btn btn-danger">Delete User</a>
+
+                                }
+                            </td>
+
+                            <td>
+                                <form asp-action="MakeAdmin" method="post">
+                                    <select name="rolename">
+
+                                        @foreach (string item in Enum.GetNames(typeof(Helper.UserRoles)))
+                                        {
+                                            @if (item != @user.Role)
+                                            {
+                                                <option value="@item"> @item</option>
+                                            }
+
+                                        }
+                                    </select>
+                                    <input type="hidden" name="Email" value="@user.Email" />
+                                    <input type="submit" class="btn btn-success ml-3" value="Change" />
+                                </form>
+                            </td>
+
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+</body>
+</html>

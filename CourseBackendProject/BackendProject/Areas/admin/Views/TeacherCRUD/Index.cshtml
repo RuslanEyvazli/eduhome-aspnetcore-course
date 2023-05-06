@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Teacher>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Slider Table</h4>
+
+                <a asp-controller="TeacherCRUD" asp-action="Create" class="btn btn-success"><i class="mdi mdi-calendar-plus">Create</i></a>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Image
+                                </th>
+                                <th>
+                                    Setting
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Teacher teacher in Model)
+                            {
+                                <tr>
+                                    <td class="py-1">
+                                        <img style="width:150px !important;height:150px !important " src="~/img/teacher/@teacher.Image" alt="image" />
+                                    </td>
+                                    <td>
+                                        <a asp-controller="TeacherCRUD" asp-action="Detail" asp-route-id="@teacher.Id" class="btn btn-success"><i class="mdi mdi-account-card-details">Detail</i></a>
+                                        <a asp-controller="TeacherCRUD" asp-action="Edit" asp-route-id="@teacher.Id" class="btn btn-primary "><i class="mdi mdi-table-edit">Edit</i></a>
+                                        <a asp-controller="TeacherCRUD" asp-action="Delete" asp-route-id="@teacher.Id" class="btn btn-danger"><i class="mdi mdi-delete-forever">Delete</i></a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

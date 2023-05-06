@@ -1,0 +1,34 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="row">
+    <div class="col-6">
+        <img style="width:200px !important;height:200px !important" src="~/img/blog/@Model.Image" alt="Alternate Text" />
+    </div>
+    <div class="col-6">
+        <form class="d-flex">
+            <div class="col-4">
+                <div class="form-group">
+                    <label asp-for="@Model.Explain"></label><br />
+                    <input asp-for="@Model.Explain" /><br />
+                    <label asp-for="@Model.AuthorName"></label><br />
+                    <input asp-for="@Model.AuthorName" /><br />
+                    <label asp-for="@Model.Date"></label><br />
+                    <input asp-for="@Model.Date" />
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="form-group">
+                    <label asp-for="@Model.BlogBody"></label><br>
+                    <input asp-for="@Model.BlogBody" />
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+<div class="row">
+    <a class="btn btn-facebook mt-4" asp-action="Index">Go Back</a>
+</div>

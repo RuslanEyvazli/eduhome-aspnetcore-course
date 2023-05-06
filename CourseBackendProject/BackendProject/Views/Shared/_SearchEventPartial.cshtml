@@ -1,0 +1,8 @@
+﻿@model List<Event>
+
+@foreach (Event eventt in Model)
+{
+    <li style="display:flex">
+        <a href="/Event/Detail/@eventt.Id">@eventt.EventName</a>
+    </li>
+}

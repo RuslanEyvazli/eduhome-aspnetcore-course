@@ -1,0 +1,54 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create Course</h4>
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label asp-for="Photo"></label>
+                            <input asp-for="Photo" accept="image/*">
+                            <span asp-validation-for="Photo" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label asp-for="AuthorName"></label><br />
+                        <input class="form-control" asp-for="AuthorName" /><br />
+                        <label asp-for="Date"></label><br />
+                        <input class="form-control" asp-for="Date" />
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label asp-for="Explain"></label><br />
+                            <input class="form-control" asp-for="Explain" /><br />
+                            <label asp-for="BlogBody"></label><br />
+                            <textarea asp-for="BlogBody" id="editor"></textarea><br />
+                            <label asp-for="PreTitle"></label><br />
+                            <input class="form-control" asp-for="PreTitle" />
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <a asp-action="Index" class="btn btn-dribbble">Go Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <partial name="_ValidationAdminParial" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    
+
+}

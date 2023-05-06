@@ -1,0 +1,80 @@
+﻿@model EventCRUDVM
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create Event</h4>
+                <div asp-validation-summary="ModelOnly">
+
+                </div>
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label asp-for="Photo"></label>
+                            <input asp-for="Photo" accept="image/*">
+                            <span asp-validation-for="Photo" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label asp-for="EventName"></label><br />
+                        <input class="form-control" asp-for="EventName" /><br />
+                        <span asp-validation-for="EventName" class="text-danger"></span>
+                        <label asp-for="Explain"></label><br />
+                        <textarea asp-for="Explain" id="editor"></textarea><br />
+                        <span asp-validation-for="Explain" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label asp-for="Date"></label><br />
+                            <input class="form-control" asp-for="Date" /><br />
+                            <span asp-validation-for="Date" class="text-danger"></span>
+                            <label asp-for="Venue"></label><br />
+                            <input class="form-control" asp-for="Venue" /><br />
+                            <span asp-validation-for="Venue" class="text-danger"></span>
+                            <label asp-for="EventDurationTime"></label><br />
+                            <input class="form-control" asp-for="EventDurationTime" /><br />
+                            <select class="js-example-basic-multiple mt-4" name="states[]" multiple="multiple" style="width:100%">
+                                @foreach (Speaker item in Model.Speakers)
+                                {
+                                    <option value="@item.Id">@item.Fullname</option>
+                                }
+                            </select><br/>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <a asp-action="Index" class="btn btn-dribbble">Go Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <partial name="_ValidationAdminParial" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor1'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+
+        $(document).ready(function () {
+            $('.js-example-basic-multiple').select2();
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+}

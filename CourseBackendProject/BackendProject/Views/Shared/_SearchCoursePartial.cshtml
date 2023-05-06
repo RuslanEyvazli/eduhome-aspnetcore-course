@@ -1,0 +1,8 @@
+﻿@model List<Course>
+
+@foreach (Course course in Model)
+{
+    <li style="display:flex">
+        <a href="/Course/Detail/@course.Id">@course.CourseName</a>
+    </li>
+}

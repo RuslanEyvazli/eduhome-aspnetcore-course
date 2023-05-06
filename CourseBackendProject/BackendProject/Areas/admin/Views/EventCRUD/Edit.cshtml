@@ -1,0 +1,95 @@
+﻿@model EventCRUDVM
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create Event</h4>
+
+                <div asp-validation-summary="ModelOnly">
+
+                </div>
+                <div>
+                    <img src="~/img/event/@Model.Eventt.Image" />
+                </div>
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label asp-for="Photo"></label>
+                            <input asp-for="Photo" accept="image/*">
+                            <span asp-validation-for="Photo" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label asp-for="Eventt.EventName"></label><br />
+                        <input class="form-control" asp-for="Eventt.EventName" /><br />
+                        <span asp-validation-for="Eventt.EventName" class="text-danger"></span>
+                        <label asp-for="Eventt.Explain"></label><br />
+                        <textarea asp-for="Eventt.Explain" id="editor"></textarea><br />
+                        <span asp-validation-for="Eventt.Explain" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label asp-for="Eventt.Date"></label><br />
+                            <input class="form-control" asp-for="Eventt.Date" /><br />
+                            <span asp-validation-for="Eventt.Date" class="text-danger"></span>
+                            <label asp-for="Eventt.Venue"></label><br />
+                            <input class="form-control" asp-for="Eventt.Venue" /><br />
+                            <span asp-validation-for="Eventt.Venue" class="text-danger"></span>
+                            <label asp-for="Eventt.EventDurationTime"></label><br />
+                            <input class="form-control" asp-for="Eventt.EventDurationTime" /><br />
+                            <select class="js-example-basic-multiple mt-4" name="states[]" multiple="multiple" style="width:100%">
+                                @foreach (Speaker speaker in Model.Speakers)
+                                {
+                                    if (Model.EventSpikers.FirstOrDefault(e => e.SpeakerId == speaker.Id) != null)
+                                    {
+                                        <option selected value="@speaker.Id">@speaker.Fullname</option>
+                                    }
+                                    else 
+                                    {
+                                        <option value="@speaker.Id">@speaker.Fullname</option>
+                                    }
+
+
+                                }
+
+                            </select><br />
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <a asp-action="Index" class="btn btn-dribbble">Go Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <partial name="_ValidationAdminParial" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor1'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+
+        $(document).ready(function () {
+            $('.js-example-basic-multiple').select2();
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+}
+

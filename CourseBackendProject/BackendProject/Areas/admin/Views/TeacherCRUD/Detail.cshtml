@@ -1,0 +1,61 @@
+﻿@model Teacher
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="row">
+    <div class="col-6">
+        <img style="width:200px !important;height:200px !important" src="~/img/teacher/@Model.Image" alt="Alternate Text" />
+    </div>
+    <div class="col-6">
+        <form class="d-flex">
+            <div class="col-6">
+                <div class="form-group">
+                    <label asp-for="@Model.About"></label><br />
+                    <input asp-for="@Model.About" /><br />
+                    <label asp-for="@Model.Degree"></label><br />
+                    <input asp-for="@Model.Degree" /><br />
+                    <label asp-for="@Model.Experience"></label><br />
+                    <input asp-for="@Model.Experience" />
+                    <label asp-for="@Model.SkypeAddress"></label><br />
+                    <input asp-for="@Model.SkypeAddress" />
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-group">
+                    <label asp-for="@Model.Hobbies"></label><br>
+                    <input asp-for="@Model.Hobbies" /><br />
+                    <label asp-for="@Model.Faculity"></label><br />
+                    <input asp-for="@Model.Faculity" /><br />
+                    <label asp-for="@Model.Email"></label><br />
+                    <input asp-for="@Model.Email" /><br />
+                    <label asp-for="@Model.PhoneNumber"></label><br />
+                    <input asp-for="@Model.PhoneNumber" />
+                </div>
+
+            </div>
+           
+
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-6 ml-3">
+            <form>
+                <div class="form-group">
+                    <input asp-for="@Model.FullName" />
+                </div>
+                <div class="form-group">
+                    <input asp-for="@Model.Profession" />
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+</div>
+
+
+<div class="row">
+    <a class="btn btn-facebook" asp-action="Index">Go Back</a>
+</div>

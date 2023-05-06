@@ -1,0 +1,97 @@
+﻿@model TeacherCRUDVM
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create Course</h4>
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label asp-for="Photo"></label>
+                            <input asp-for="Photo" accept="image/*">
+                            <span asp-validation-for="Photo" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label asp-for="FullName"></label><br />
+                        <input class="form-control" asp-for="FullName" /><br />
+                        <label asp-for="Profession"></label><br />
+                        <input asp-for="Profession" />
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label asp-for="About"></label><br />
+                            <textarea asp-for="About" id="editor"></textarea><br />
+                            <label asp-for="Degree"></label><br />
+                            <input asp-for="Degree" /><br />
+                            <label asp-for="Experience"></label><br />
+                            <input asp-for="Experience" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label asp-for="Hobbies"></label><br>
+                            <input class="form-control" asp-for="Hobbies" /><br />
+                            <label asp-for="Faculity"></label><br>
+                            <input class="form-control" asp-for="Faculity" /><br />
+                            <label asp-for="Email"></label><br />
+                            <input class="form-control" asp-for="Email" /><br />
+                            <label asp-for="PhoneNumber"></label><br />
+                            <input class="form-control" asp-for="PhoneNumber" /> <br />
+                            <label asp-for="SkypeAddress"></label><br />
+                            <input class="form-control" asp-for="SkypeAddress" />
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label asp-for="Facebook"></label><br />
+                            <input class="form-control" asp-for="Facebook" /> <br />
+                            <label asp-for="Twitter"></label><br />
+                            <input class="form-control" asp-for="Twitter" /> <br />
+                            <label asp-for="Pinterest"></label><br />
+                            <input class="form-control" asp-for="Pinterest" /> <br />
+                            <label asp-for="Vimeo"> </label><br />
+                            <input class="form-control" asp-for="Vimeo" /> <br />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label asp-for="Language"></label><br />
+                            <input class="form-control" asp-for="Language" /> <br />
+                            <label asp-for="TeamLeader"></label><br />
+                            <input class="form-control" asp-for="TeamLeader" /> <br />
+                            <label asp-for="Development"></label><br />
+                            <input class="form-control" asp-for="Development" /> <br />
+                            <label asp-for="Design"> </label><br />
+                            <input class="form-control" asp-for="Design" /> <br />
+                            <label asp-for="Innovation"> </label><br />
+                            <input class="form-control" asp-for="Innovation" /> <br />
+                            <label asp-for="Communication"> </label><br />
+                            <input class="form-control" asp-for="Communication" /> <br />
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <a asp-action="Index" class="btn btn-dribbble">Go Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <partial name="_ValidationAdminParial" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
+}

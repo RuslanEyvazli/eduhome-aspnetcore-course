@@ -1,0 +1,8 @@
+﻿@model List<Blog>
+
+@foreach (Blog blog in Model)
+{
+    <li  style="display:flex">
+        <a href="/Teacher/Detail/@blog.Id">@blog.Explain</a>
+    </li>
+}

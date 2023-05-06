@@ -1,0 +1,62 @@
+﻿@model Bio
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <form method="post" enctype="multipart/form-data">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="Address"></label><br>
+                    <input class="form-control" asp-for="Address" /><br />
+                    <span asp-validation-for="Address"></span>
+                    <label asp-for="Facebook"></label><br>
+                    <input class="form-control" asp-for="Facebook" /><br />
+                    <span asp-validation-for="Facebook"></span>
+                    <label asp-for="PhoneNumber"></label><br />
+                    <input class="form-control" asp-for="PhoneNumber" /><br />
+                    <span asp-validation-for="PhoneNumber"></span>
+                    <label asp-for="Pinterest"></label><br />
+                    <input class="form-control" asp-for="Pinterest" /><br />
+                    <span asp-validation-for="Pinterest"></span>
+                    <label asp-for="Site"></label><br />
+                    <input class="form-control" asp-for="Site" />
+                    <span asp-validation-for="Site"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SliderDescription"></label><br />
+                    <textarea class="form-control" asp-for="SliderDescription" id="editor"></textarea><br />
+                    <span asp-validation-for="SliderDescription"></span>
+                    <label asp-for="SliderTitle"></label><br />
+                    <input class="form-control" asp-for="SliderTitle" /><br />
+                    <span asp-validation-for="SliderTitle"></span>
+                    <label asp-for="Twitter"></label><br />
+                    <input class="form-control" type="number" asp-for="Twitter" />
+                    <span asp-validation-for="Twitter"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Vimeo"></label><br />
+                    <input asp-for="Vimeo" /><br />
+                    <span asp-validation-for="Vimeo"></span>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+
+@section Scripts{
+    <partial name="_ValidationAdminParial" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+}
