@@ -10,4 +10,4 @@ You can register as a regular user to view the site's functionalities. If you wa
 <p>Password: Ruslan123@</p>
  
  
-You may face shortcoming on the site. It will be corrected if you report the above mentioned trend. Thanks in advance.
+You may face shortcoming on the site. It will be corrected if you report the above mentioned email. Thanks in advance.
